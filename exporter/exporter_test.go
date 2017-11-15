@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/monitoring-tools/prom-nginx-exporter/exporter"
-	"github.com/monitoring-tools/prom-nginx-exporter/scraper"
+	"github.com/dreamit-de/prom-nginx-exporter/exporter"
+	"github.com/dreamit-de/prom-nginx-exporter/scraper"
 
 	"github.com/prometheus/client_golang/prometheus"
 	. "gopkg.in/check.v1"

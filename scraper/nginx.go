@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/monitoring-tools/prom-nginx-exporter/metric"
+	"github.com/dreamit-de/prom-nginx-exporter/metric"
 )
 
 var (
