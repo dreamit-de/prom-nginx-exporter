@@ -1,12 +1,12 @@
 hash: 261421056519338002117e308bbe1828bfec23a52464a1cd7d1102808495de40
-updated: 2017-11-15T15:40:39.345703+01:00
+updated: 2017-11-15T15:52:40.959029+01:00
 imports:
 - name: github.com/beorn7/perks
   version: 4c0e84591b9aa9e6dcfdf3e020114cd81f89d5f9
   subpackages:
   - quantile
 - name: github.com/dreamit-de/prom-nginx-exporter
-  version: 846c7331c66c8de9e4b79a46aae2fa41a2e4f25f
+  version: 58111c19b85fc2bed78cf5557894bc80be4e0191
   subpackages:
   - common
   - exporter
@@ -20,12 +20,6 @@ imports:
   version: c12348ce28de40eed0136aa2b644d0ee0650e56c
   subpackages:
   - pbutil
-- name: github.com/monitoring-tools/prom-nginx-exporter
-  version: 463ede5294ee381dbd4e1bc1dd05bc51f92450f8
-  subpackages:
-  - common
-  - metric
-  - scraper
 - name: github.com/prometheus/client_golang
   version: c5b7fccd204277076155f10851dad72b76a49317
   subpackages:
