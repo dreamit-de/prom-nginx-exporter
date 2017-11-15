@@ -317,39 +317,39 @@ func (s NginxPlusScraperSuite) TestScrape_Success(c *C) {
 	c.Assert(m.Value, Equals, int64(11), Commentf("incorrect value of metric 'zone_discarded'"))
 	c.Assert(m.Labels, DeepEquals, zoneLabels, Commentf("incorrect set of labels"))
 
-	upstramLabels := make(map[string]string)
+	upstreamLabels := make(map[string]string)
 	for l, v := range labels {
-		upstramLabels[l] = v
+		upstreamLabels[l] = v
 	}
-	upstramLabels["upstream"] = "first_upstream"
+	upstreamLabels["upstream"] = "first_upstream"
 
 	m = <-metrics
 	c.Assert(m.Name, Equals, "upstream_keepalive", Commentf("incorrect metrics name of 'upstream_keepalive' field"))
 	c.Assert(m.Value, Equals, 1, Commentf("incorrect value of metric 'upstream_keepalive'"))
-	c.Assert(m.Labels, DeepEquals, upstramLabels, Commentf("incorrect set of labels"))
+	c.Assert(m.Labels, DeepEquals, upstreamLabels, Commentf("incorrect set of labels"))
 
 	m = <-metrics
 	c.Assert(m.Name, Equals, "upstream_zombies", Commentf("incorrect metrics name of 'upstream_zombies' field"))
 	c.Assert(m.Value, Equals, 2, Commentf("incorrect value of metric 'upstream_zombies'"))
-	c.Assert(m.Labels, DeepEquals, upstramLabels, Commentf("incorrect set of labels"))
+	c.Assert(m.Labels, DeepEquals, upstreamLabels, Commentf("incorrect set of labels"))
 
 	m = <-metrics
 	c.Assert(m.Name, Equals, "upstream_queue_size", Commentf("incorrect metrics name of 'upstream_queue_size' field"))
 	c.Assert(m.Value, Equals, 100, Commentf("incorrect value of metric 'upstream_queue_size'"))
-	c.Assert(m.Labels, DeepEquals, upstramLabels, Commentf("incorrect set of labels"))
+	c.Assert(m.Labels, DeepEquals, upstreamLabels, Commentf("incorrect set of labels"))
 
 	m = <-metrics
 	c.Assert(m.Name, Equals, "upstream_queue_max_size", Commentf("incorrect metrics name of 'upstream_queue_max_size' field"))
 	c.Assert(m.Value, Equals, 1000, Commentf("incorrect value of metric 'upstream_queue_max_size'"))
-	c.Assert(m.Labels, DeepEquals, upstramLabels, Commentf("incorrect set of labels"))
+	c.Assert(m.Labels, DeepEquals, upstreamLabels, Commentf("incorrect set of labels"))
 
 	m = <-metrics
 	c.Assert(m.Name, Equals, "upstream_queue_overflows", Commentf("incorrect metrics name of 'upstream_queue_overflows' field"))
 	c.Assert(m.Value, Equals, int64(12), Commentf("incorrect value of metric 'upstream_queue_overflows'"))
-	c.Assert(m.Labels, DeepEquals, upstramLabels, Commentf("incorrect set of labels"))
+	c.Assert(m.Labels, DeepEquals, upstreamLabels, Commentf("incorrect set of labels"))
 
 	peerLabels := make(map[string]string)
-	for l, v := range upstramLabels {
+	for l, v := range upstreamLabels {
 		peerLabels[l] = v
 	}
 	peerLabels["id"] = "0"
