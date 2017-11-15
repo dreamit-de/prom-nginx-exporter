@@ -1,6 +1,6 @@
 # Prom Nginx Exporter
 
-`Prom Nginx Exporter` is nginx statistics exporter for Prometheus.
+`Prom Nginx Exporter` is a nginx statistics exporter for Prometheus.
 
 The `Prom Nginx Exporter` requests the nginx or nginx plus stats from specified endpoints and exposes them for Prometheus consumption.
 
@@ -28,22 +28,22 @@ $ ./darwin_amd64/nginx-plus-exporter listen-address="localhost:9005" --metrics-p
 
 ### Other useful make commands:
 
-The building application for linux with amd65 architecture:
+Build the application for linux with amd64 architecture:
 ```
 $ make build
 ```
 
-The running unit tests:
+Run unit tests:
 ```
 $ make test
 ```
 
-The creating docker image:
+Create docker image:
 ```
 $ make docker
 ```
 
-The applying go tool to code:
+Applying go tools to code:
 ```
 $ make fmt
 >> formatting source
@@ -60,7 +60,7 @@ The running all targets:
 $ make all
 ```
 
-It will get all necessary dependencies, run unit tests and build application for linux with amd64 architecture.
+It will get all necessary dependencies, run unit tests and build the application for linux with amd64 architecture.
 
 ### Flags
 
@@ -73,11 +73,11 @@ nginx-stats-urls      |    yes   |    yes   | -              | An array of Nginx
 nginx-plus-stats-urls |    yes   |    yes   | -              | An array of Nginx Plus URL to gather stats.
 
 ## What's exported?
-It exports statistics of standart Nginx module (https://nginx.org/en/docs/http/ngx_http_stub_status_module.html) and Nginx Plus module (http://nginx.org/en/docs/http/ngx_http_status_module.html).
+It exports statistics of standard Nginx module (https://nginx.org/en/docs/http/ngx_http_stub_status_module.html) and Nginx Plus module (http://nginx.org/en/docs/http/ngx_http_status_module.html).
 
 ### Handling different value types
 
-Note, that some fields of nginx statistics have bool or strings type of values. Therefore there use the following algorithm of converting such fields into *float64*:
+Note, that some fields of nginx statistics have bool or string value types. Therefore use the following algorithm of converting such fields into *float64*:
 
  - The **bool** value: the value *false* is converted to *float64(1)*, the value *true* is converted to *float64(0)*.
  - The **string** value "up", "down": the value "up" is converted to *float(1)*, the value "down" is converted to *float(0)*.
